@@ -12,6 +12,7 @@ public class Racing {
         Race race = new Race(inputName(), inputCount());
         printRaceStart();
         progressRacing(race);
+        printResult(race.getWinnerNames());
     }
 
     private void progressRacing(Race race){
