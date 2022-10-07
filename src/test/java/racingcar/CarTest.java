@@ -11,6 +11,8 @@ public class CarTest {
     private static final String overCarName = "tester";
     private static final String emptyName1 = "";
     private static final String emptyName2 = " ";
+    private static final int MOVING_FORWARD = 4;
+    private static final int STOP = 3;
     private static Car car;
 
     @BeforeAll
@@ -46,6 +48,13 @@ public class CarTest {
                 .isThrownBy(() -> new Car(null))
                 .withMessageContaining("미입력");
     }
+    @Test
+    @DisplayName("자동차 이동 테스트")
+    void input_Car_Move() {
+        car.move(STOP);
+        assertThat(car.getDistance()).isEqualTo(0);
 
-
+        car.move(MOVING_FORWARD);
+        assertThat(car.getDistance()).isEqualTo(1);
+    }
 }
